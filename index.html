@@ -1,0 +1,1424 @@
+<!--
+  ============================================================
+  FERRETERÍA TOSETTO — SITIO WEB
+  ============================================================
+  Autor: Francisco Aguirre
+  ============================================================
+-->
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ferretería Tosetto | Todo para tu obra y tu hogar</title>
+<meta name="description" content="Ferretería Tosetto — Herramientas, electricidad, plomería, pinturería, jardinería y tornillería. Atención de barrio, stock real.">
+
+>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   1. VARIABLES / TOKENS DE DISEÑO
+   ========================================================= */
+:root{
+  --azul-950: #0a1f2e;   
+  --azul-900: #14324a;   
+  --azul-700: #1e4a68;   
+  --naranja-500: #f2760a; 
+  --naranja-600: #d4620a; 
+  --gris-700: #5a6b75;   
+  --gris-200: #e7eaec;   
+  --gris-100: #f2f4f5; 
+  --blanco: #ffffff;
+
+  --fuente-display: 'Oswald', sans-serif;
+  --fuente-texto: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --radio: 10px;
+  --sombra: 0 4px 16px rgba(10, 31, 46, 0.10);
+  --sombra-fuerte: 0 12px 32px rgba(10, 31, 46, 0.18);
+
+  --header-h: 68px;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; scroll-padding-top: var(--header-h); }
+
+body{
+  font-family: var(--fuente-texto);
+  color: var(--azul-950);
+  background: var(--blanco);
+  line-height: 1.5;
+}
+
+img, svg{ display:block; max-width:100%; }
+
+a{ color:inherit; text-decoration:none; }
+
+ul{ list-style:none; }
+
+h1,h2,h3{ font-family: var(--fuente-display); letter-spacing: 0.3px; }
+
+.contenedor{
+  width:100%;
+  max-width: 1180px;
+  margin-inline:auto;
+  padding-inline: 24px;
+}
+
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; }
+}
+
+
+a:focus-visible, button:focus-visible{
+  outline: 3px solid var(--naranja-500);
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   2. HEADER / NAV FIJO
+   ========================================================= */
+.header{
+  position: fixed;
+  top:0; left:0; right:0;
+  height: var(--header-h);
+  background: var(--azul-950);
+  z-index: 1000;
+  border-bottom: 3px solid var(--naranja-500);
+}
+
+.header .contenedor{
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.marca{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color: var(--blanco);
+  font-family: var(--fuente-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.marca .logo-marca{
+  height: 38px;
+  width: auto;
+  flex-shrink:0;
+}
+
+.nav-links{
+  display:flex;
+  gap: 8px;
+  align-items:center;
+}
+
+.nav-links a{
+  color: var(--gris-200);
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 10px 14px;
+  border-radius: 6px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.nav-links a:hover{
+  background: rgba(242,118,10,0.15);
+  color: var(--blanco);
+}
+
+.nav-links .btn-nav-cta{
+  background: var(--naranja-500);
+  color: var(--blanco);
+  font-weight: 600;
+}
+.nav-links .btn-nav-cta:hover{
+  background: var(--naranja-600);
+  color: var(--blanco);
+}
+
+
+.btn-menu{
+  display:none;
+  background:none;
+  border:none;
+  color: var(--blanco);
+  cursor:pointer;
+  padding:8px;
+}
+.btn-menu svg{ width:26px; height:26px; }
+
+
+.hero{
+  margin-top: var(--header-h);
+  position: relative;
+  background:
+    radial-gradient(circle, rgba(242,118,10,0.16) 1.5px, transparent 1.6px) 0 0 / 26px 26px,
+    linear-gradient(160deg, var(--azul-950) 0%, var(--azul-900) 55%, var(--azul-700) 100%);
+  color: var(--blanco);
+  padding: 76px 0 96px;
+  overflow:hidden;
+}
+
+.hero-layout{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 56px;
+  position:relative;
+  z-index:2;
+}
+
+
+.hero-logo-col{
+  flex-shrink:0;
+  display:flex;
+  justify-content:center;
+  margin-right: 4%;
+}
+
+/* Logo grande */
+.hero-logo{
+  height: 320px;
+  width: auto;
+  max-width: 100%;
+  margin-right: 150px;
+  filter: drop-shadow(0 18px 30px rgba(0,0,0,0.35));
+}
+
+.hero-contenido{
+  max-width: 620px;
+  position:relative;
+  z-index:2;
+}
+
+.hero-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background: rgba(242,118,10,0.15);
+  border: 1px solid rgba(242,118,10,0.4);
+  color: var(--naranja-500);
+  font-size: 0.8rem;
+  font-weight:600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+
+.hero h1{
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  line-height: 1.1;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.hero h1 span{ color: var(--naranja-500); }
+
+.hero p{
+  font-size: 1.08rem;
+  color: var(--gris-200);
+  max-width: 480px;
+  margin-bottom: 32px;
+}
+
+.hero-acciones{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding: 14px 24px;
+  border-radius: var(--radio);
+  font-weight:600;
+  font-size: 0.98rem;
+  cursor:pointer;
+  border: 2px solid transparent;
+  transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+.btn:hover{ transform: translateY(-2px); }
+
+.btn-primario{
+  background: var(--naranja-500);
+  color: var(--blanco);
+  box-shadow: var(--sombra);
+}
+.btn-primario:hover{ background: var(--naranja-600); }
+
+.btn-secundario{
+  background: transparent;
+  border-color: rgba(255,255,255,0.35);
+  color: var(--blanco);
+}
+.btn-secundario:hover{ background: rgba(255,255,255,0.1); }
+
+.btn svg{ width:20px; height:20px; }
+
+
+.wsp-flotante{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index: 999;
+  width:58px; height:58px;
+  border-radius:50%;
+  background:#25D366;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow: var(--sombra-fuerte);
+  transition: transform 0.15s ease;
+}
+.wsp-flotante:hover{ transform: scale(1.08); }
+.wsp-flotante svg{ width:30px; height:30px; }
+
+/* =========================================================
+   4. SECCIONES GENERALES
+   ========================================================= */
+.seccion{ padding: 76px 0; }
+.seccion-alt{ background: var(--gris-100); }
+
+.encabezado-seccion{
+  max-width: 640px;
+  margin-bottom: 44px;
+}
+
+.encabezado-seccion .eyebrow{
+  color: var(--naranja-600);
+  font-weight:700;
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display:block;
+}
+
+.encabezado-seccion h2{
+  font-size: clamp(1.7rem, 3.6vw, 2.3rem);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.encabezado-seccion p{
+  color: var(--gris-700);
+  font-size: 1.02rem;
+}
+
+/* =========================================================
+   5. CATEGORÍAS (estilo "chapa / cartel de pegboard")
+   ========================================================= */
+.grid-categorias{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.tarjeta-categoria{
+  position:relative;
+  background: var(--blanco);
+  border: 1px solid var(--gris-200);
+  border-radius: var(--radio);
+  padding: 26px 20px;
+  text-align:left;
+  cursor:pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+  font-family: inherit;
+}
+
+.tarjeta-categoria:hover{
+  box-shadow: var(--sombra);
+  transform: translateY(-3px);
+  border-color: var(--naranja-500);
+}
+
+.tarjeta-categoria.activa{
+  border-color: var(--naranja-500);
+  box-shadow: var(--sombra);
+  background: linear-gradient(180deg, #fff8f1 0%, #ffffff 100%);
+}
+
+.tarjeta-categoria::before,
+.tarjeta-categoria::after{
+  content:"";
+  position:absolute;
+  top:12px;
+  width:8px; height:8px;
+  border-radius:50%;
+  background: var(--gris-200);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.15);
+}
+.tarjeta-categoria::before{ left:12px; }
+.tarjeta-categoria::after{ right:12px; }
+
+.icono-categoria{
+  width:44px; height:44px;
+  color: var(--naranja-500);
+  margin-bottom: 16px;
+}
+
+.tarjeta-categoria h3{
+  font-size: 1.08rem;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  color: var(--azul-950);
+}
+
+.tarjeta-categoria .contador{
+  font-size: 0.85rem;
+  color: var(--gris-700);
+}
+
+.tarjeta-categoria .ver-mas-cat{
+  margin-top: 14px;
+  font-size: 0.85rem;
+  font-weight:600;
+  color: var(--naranja-600);
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+/* =========================================================
+   6. PANEL DE PRODUCTOS (aparece dinámicamente con JS)
+   ========================================================= */
+.panel-productos{
+  margin-top: 40px;
+  border-top: 3px solid var(--naranja-500);
+  padding-top: 32px;
+  display:none; 
+}
+
+.panel-productos.visible{
+  display:block;
+  animation: aparecer 0.25s ease;
+}
+
+@keyframes aparecer{
+  from{ opacity:0; transform: translateY(8px); }
+  to{ opacity:1; transform: translateY(0); }
+}
+
+.panel-productos-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-bottom: 24px;
+}
+
+.panel-productos-header h3{
+  font-size: 1.3rem;
+  text-transform:uppercase;
+  color: var(--azul-950);
+}
+
+.btn-cerrar-panel{
+  background: var(--gris-100);
+  border: 1px solid var(--gris-200);
+  color: var(--gris-700);
+  font-size:0.85rem;
+  font-weight:600;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor:pointer;
+}
+.btn-cerrar-panel:hover{ background: var(--gris-200); }
+
+.grid-productos{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.tarjeta-producto{
+  background: var(--blanco);
+  border: 1px solid var(--gris-200);
+  border-radius: var(--radio);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  transition: box-shadow 0.15s ease;
+}
+.tarjeta-producto:hover{ box-shadow: var(--sombra); }
+
+
+.placeholder-img{
+  width:100%;
+  aspect-ratio: 4 / 3;
+  background:
+    repeating-linear-gradient(45deg, #eef1f2, #eef1f2 10px, #e4e8ea 10px, #e4e8ea 20px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color: var(--gris-700);
+}
+.placeholder-img svg{ width:38px; height:38px; opacity:0.6; }
+
+.tarjeta-producto-info{
+  padding: 16px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
+
+.tarjeta-producto-info h4{
+  font-family: var(--fuente-texto);
+  font-size: 1rem;
+  font-weight:700;
+  margin-bottom: 6px;
+  color: var(--azul-950);
+}
+
+.tarjeta-producto-info p{
+  font-size: 0.88rem;
+  color: var(--gris-700);
+  margin-bottom: 16px;
+  flex:1;
+}
+
+.btn-consultar{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  background: var(--azul-900);
+  color: var(--blanco);
+  font-size: 0.85rem;
+  font-weight:600;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border:none;
+  cursor:pointer;
+  transition: background 0.15s ease;
+}
+.btn-consultar:hover{ background: var(--azul-700); }
+.btn-consultar svg{ width:16px; height:16px; }
+
+/* =========================================================
+   7. UBICACIÓN
+   ========================================================= */
+.grid-ubicacion{
+  display:grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 32px;
+  align-items:stretch;
+}
+
+.tarjeta-info-ubicacion{
+  background: var(--azul-950);
+  color: var(--blanco);
+  border-radius: var(--radio);
+  padding: 32px;
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+}
+
+.bloque-dato{
+  display:flex;
+  gap:14px;
+}
+
+.bloque-dato svg{
+  width:24px; height:24px;
+  color: var(--naranja-500);
+  flex-shrink:0;
+  margin-top:2px;
+}
+
+.bloque-dato h4{
+  font-family: var(--fuente-texto);
+  font-size: 0.95rem;
+  font-weight:700;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.bloque-dato p, .bloque-dato span{
+  font-size: 0.92rem;
+  color: var(--gris-200);
+  line-height:1.6;
+}
+
+.tabla-horarios{
+  width:100%;
+  border-collapse: collapse;
+  margin-top: 4px;
+}
+.tabla-horarios td{
+  font-size: 0.9rem;
+  color: var(--gris-200);
+  padding: 3px 0;
+}
+.tabla-horarios td:last-child{
+  text-align:right;
+  font-weight:600;
+  color: var(--blanco);
+}
+
+.contenedor-mapa{
+  border-radius: var(--radio);
+  overflow:hidden;
+  border: 1px solid var(--gris-200);
+  min-height: 320px;
+  background: var(--gris-100);
+}
+
+.contenedor-mapa iframe{
+  width:100%;
+  height:100%;
+  min-height: 320px;
+  border:0;
+}
+
+
+.tarjeta-fachada{
+  margin-top: 24px;
+  position:relative;
+  border-radius: var(--radio);
+  overflow:hidden;
+  box-shadow: var(--sombra);
+  border: 1px solid var(--gris-200);
+}
+
+.tarjeta-fachada img{
+  width:100%;
+  max-height: 420px;
+  object-fit: cover;
+  display:block;
+}
+
+.tarjeta-fachada-caption{
+  position:absolute;
+  left:0; right:0; bottom:0;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding: 14px 20px;
+  background: linear-gradient(0deg, rgba(10,31,46,0.88) 0%, rgba(10,31,46,0.0) 100%);
+  color: var(--blanco);
+  font-size: 0.92rem;
+  font-weight:600;
+}
+
+.tarjeta-fachada-caption svg{
+  width:18px; height:18px;
+  color: var(--naranja-500);
+  flex-shrink:0;
+}
+
+/* =========================================================
+   8. FOOTER / CONTACTO
+   ========================================================= */
+.footer{
+  background: var(--azul-950);
+  color: var(--gris-200);
+  padding: 56px 0 24px;
+}
+
+.grid-footer{
+  display:grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.footer-marca{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-family: var(--fuente-display);
+  font-size: 1.15rem;
+  color: var(--blanco);
+  text-transform:uppercase;
+  margin-bottom: 12px;
+}
+.footer-marca .logo-footer{ height:32px; width:auto; }
+
+.footer p{ font-size: 0.9rem; line-height:1.6; max-width: 320px; }
+
+.footer h5{
+  font-family: var(--fuente-texto);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--blanco);
+  margin-bottom: 16px;
+}
+
+.footer-links li{ margin-bottom: 10px; }
+
+.footer-links a{
+  font-size: 0.9rem;
+  color: var(--gris-200);
+  display:flex;
+  align-items:center;
+  gap:10px;
+  transition: color 0.15s ease;
+}
+.footer-links a:hover{ color: var(--naranja-500); }
+.footer-links svg{ width:18px; height:18px; flex-shrink:0; }
+
+.footer-bottom{
+  padding-top: 20px;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:10px;
+  font-size: 0.82rem;
+  color: var(--gris-700);
+}
+.tabla-horarios td{
+  font-size: 0.9rem;
+  color: var(--gris-200);
+  padding: 5px 0; 
+  padding-right: 20px; 
+}
+
+/* =========================================================
+   9. RESPONSIVE — TABLET Y MOBILE
+   ========================================================= */
+@media (max-width: 900px){
+  .hero-logo{ height: 210px; } 
+  .grid-categorias{ grid-template-columns: repeat(2, 1fr); } 
+  .grid-productos{ grid-template-columns: repeat(2, 1fr); }
+  .grid-ubicacion{ grid-template-columns: 1fr; }
+  .grid-footer{ grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 720px){
+  .btn-menu{ display:block; }
+
+  .nav-links{
+    position: fixed;
+    top: var(--header-h);
+    left:0; right:0;
+    background: var(--azul-950);
+    flex-direction:column;
+    align-items:stretch;
+    padding: 12px 20px 20px;
+    gap:4px;
+    border-bottom: 3px solid var(--naranja-500);
+    transform: translateY(-130%);
+    transition: transform 0.2s ease;
+  }
+  .nav-links.abierto{ transform: translateY(0); }
+  .nav-links a{ width:100%; padding:12px 10px; }
+
+  .hero{ padding: 48px 0 68px; text-align:left; }
+  .hero-layout{
+    flex-direction: column; 
+    align-items: center;
+    text-align: center;
+    gap: 28px;
+  }
+  .hero-logo{ height: 170px; margin-bottom: 0; } 
+  .hero-contenido{ max-width: 100%; }
+  .hero-acciones{ flex-direction:column; align-items:stretch; }
+  .hero-acciones .btn{ justify-content:center; }
+
+  .grid-categorias{ grid-template-columns: 1fr; }
+  .grid-productos{ grid-template-columns: 1fr 1fr; }
+
+  .grid-footer{ grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom{ flex-direction:column; }
+}
+
+@media (max-width: 420px){
+  .grid-productos{ grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     HEADER / NAVEGACIÓN FIJA
+     ========================================================= -->
+<header class="header">
+  <div class="contenedor">
+    <a href="#inicio" class="marca">
+      <img src="img/logo.png" alt="Logo Ferretería Tosetto" class="logo-marca">
+      Ferretería Tosetto
+    </a>
+
+    <button class="btn-menu" id="btnMenu" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#categorias">Categorías</a>
+      <a href="#ubicacion">Ubicación</a>
+      <a href="#contacto">Contacto</a>
+      
+      <a href="https://wa.me/5493564697813" target="_blank" rel="noopener" class="btn-nav-cta">WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<!-- =========================================================
+     SECCIÓN: HERO 
+     ========================================================= -->
+<section class="hero" id="inicio">
+  <div class="contenedor hero-layout">
+
+    <div class="hero-contenido">
+      <span class="hero-eyebrow">Ferretería de barrio · Desde siempre cerca tuyo</span>
+      <h1>Todo lo que necesitás para tu <span>obra y tu hogar</span></h1>
+      <p>Herramientas, materiales y repuestos con el asesoramiento de siempre. Si ferreteria tosetto no lo tiene, es porque no viene.</p>
+      <div class="hero-acciones">
+        
+        <a href="https://wa.me/5493564697813?text=Hola%20Ferreter%C3%ADa%20Tosetto%2C%20quer%C3%ADa%20consultar%20por..." target="_blank" rel="noopener" class="btn btn-primario">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1.1-.1.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.1-.3 0-.4.1-.6l.4-.5c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.1 0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.7-.7 1.9-1.3.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+          Consultanos por WhatsApp
+        </a>
+        <a href="#categorias" class="btn btn-secundario">Ver categorías</a>
+      </div>
+    </div>
+    <!-- FIN bloque de texto -->
+
+    <!-- ============================================
+         LOGO GRANDE 
+         ============================================ -->
+    <div class="hero-logo-col">
+      <img src="img/logo.png" alt="Logo Ferretería Tosetto" class="hero-logo" style="transform: scale(1.6);">
+    </div>
+    <!-- FIN logo grande -->
+
+  </div>
+</section>
+
+
+<a href="https://wa.me/5493564697813" target="_blank" rel="noopener" class="wsp-flotante" aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1.1-.1.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.1-.3 0-.4.1-.6l.4-.5c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.1 0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.7-.7 1.9-1.3.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+</a>
+
+<!-- =========================================================
+     CATEGORÍAS Y PRODUCTOS (interactivo)
+     ========================================================= -->
+<section class="seccion" id="categorias">
+  <div class="contenedor">
+    <div class="encabezado-seccion">
+      <span class="eyebrow">Nuestro catálogo</span>
+      <h2>Categorías principales</h2>
+      <p>Elegí una categoría para ver algunos de los productos que tenemos disponibles en el local.</p>
+    </div>
+
+    <!-- =========================================================
+         GRILLA DE 8 CATEGORÍAS 
+         ========================================================= -->
+    <div class="grid-categorias" id="gridCategorias">
+
+      <!-- ==========================================
+           CATEGORÍA 1: HERRAMIENTAS MANUALES
+           ========================================== -->
+      <button class="tarjeta-categoria" data-categoria="manuales">
+        <!-- Ícono: martillo -->
+        <img src="img/IconoMartillo.png" alt="Herramientas manuales" style="transform: scale(1.3); height: 48px; width: auto; margin-bottom: 16px;margin-left: 25px; margin-top: 4px; object-fit: contain;">
+        <h3>Herramientas Manuales</h3>
+        <span class="contador">Destornilladores, llaves, martillos y más</span>
+        <span class="ver-mas-cat">Ver productos →</span>
+      </button>
+
+      <!-- ==========================================
+           CATEGORÍA 2: MÁQUINAS ELÉCTRICAS
+           ========================================== -->
+      <button class="tarjeta-categoria" data-categoria="maquinas">
+        <!-- Ícono: taladro -->
+        <img src="img/IconoTaladro.png" alt="Máquinas Eléctricas" style="transform: scale(1.3); height: 48px; width: auto; margin-bottom: 16px; margin-left: 25px; margin-top: -4px; object-fit: contain;">
+        <h3>Máquinas Eléctricas</h3>
+        <span class="contador">Amoladoras, taladros, rotomartillos</span>
+        <span class="ver-mas-cat">Ver productos →</span>
+      </button>
+
+      <!-- ==========================================
+           CATEGORÍA 3: CORTADORA / MOTOGUADAÑA
+           ========================================== -->
+      <button class="tarjeta-categoria" data-categoria="motoguadana">
+        <!-- Ícono: cortadora de pasto -->
+        <img src="img/IconoCortadoraPasto.png" alt="Cortadora / Motoguadaña" style="transform: scale(1.3); height: 48px; width: auto; margin-bottom: 16px; margin-left: 25px; margin-top: 4px; object-fit: contain;">
+        <h3>Cortadora / Motoguadaña</h3>
+        <span class="contador">Cortadoras de pasto y motoguadañas</span>
+        <span class="ver-mas-cat">Ver productos →</span>
+      </button>
+
+      <!-- ==========================================
+           CATEGORÍA 4: PINTURAS Y ACCESORIOS
+           ========================================== -->
+      <button class="tarjeta-categoria" data-categoria="pinturas">
+        <!-- Ícono: pincel -->
+        <img src="img/IconoPintura.png" alt="Pinturas y Accesorios" style="transform: scale(1.6);height: 48px; width: auto; margin-bottom: 16px; margin-left: 25px; margin-top: 4px; object-fit: contain;">
+        <h3>Pinturas y Accesorios</h3>
+        <span class="contador">Látex, esmaltes, rodillos, pinceles</span>
+        <span class="ver-mas-cat">Ver productos →</span>
+      </button>
+
+      <!-- ==========================================
+           CATEGORÍA 5: PLOMERÍA Y SANITARIOS
+           ========================================== -->
+      <button class="tarjeta-categoria" data-categoria="plomeria">
+        <!-- Ícono: canilla de agua -->
+        <img src="img/IconoCanilla.png" alt="Plomería y Sanitarios" style="transform: scale(1.2);height: 48px; width: auto; margin-bottom: 16px; margin-left: 25px; margin-top: 4px; object-fit: contain;">
+        <h3>Plomería y Sanitarios</h3>
+        <span class="contador">Caños, codos, llaves de paso, sellos</span>
+        <span class="ver-mas-cat">Ver productos →</span>
+      </button>
+
+      <!-- ==========================================
+           CATEGORÍA 6: MOTOSIERRA
+           ========================================== -->
+      <button class="tarjeta-categoria" data-categoria="motosierra">
+        <!-- Ícono: motosierra -->
+        <img src="img/IconoMotosierra.png" alt="Motosierra" style="transform: scale(0.8);height: 48px; width: auto; margin-bottom: 16px; margin-left: 5px; margin-top: 4px; object-fit: contain;">
+        <h3>Motosierra</h3>
+        <span class="contador">Motosierras y accesorios para corte</span>
+        <span class="ver-mas-cat">Ver productos →</span>
+      </button>
+
+      <!-- ==========================================
+           CATEGORÍA 7: TORNILLOS Y BULONES
+           ========================================== -->
+      <button class="tarjeta-categoria" data-categoria="tornillos">
+        <!-- Ícono: tornillo / bulón -->
+        <img src="img/IconoBulon.png" alt="Tornillos y Bulones" style="transform: scale(1.1);height: 48px; width: auto; margin-bottom: 16px; margin-left: 20px; margin-top: 4px; object-fit: contain;">
+        <h3>Tornillos y Bulones</h3>
+        <span class="contador">Acero, galvanizado e inoxidable</span>
+        <span class="ver-mas-cat">Ver productos →</span>
+      </button>
+
+      <!-- ==========================================
+           CATEGORÍA 8: ESTUFAS
+           ========================================== -->
+      <button class="tarjeta-categoria" data-categoria="estufas">
+        <!-- Ícono: estufa a leña -->
+        <img src="img/IconoEstufa.png" alt="Estufas y accesorios" style="transform: scale(1.5);height: 48px; width: auto; margin-bottom: 16px; margin-left: 20px; margin-top: 4px; object-fit: contain;">
+        <h3>Estufas</h3>
+        <span class="contador">Estufas a leña y accesorios</span>
+        <span class="ver-mas-cat">Ver productos →</span>
+      </button>
+
+      <!-- ==========================================
+           CATEGORÍA 9: ELECTRICIDAD
+           ========================================== -->
+
+
+      <button class="tarjeta-categoria" data-categoria="electricidad">
+        <!-- Ícono: electricidad -->
+        <img src="img/IconoElectricidad.png" alt="Electricidad" style="transform: scale(1.3); height: 48px; width: auto; margin-bottom: 16px;margin-left: 25px; margin-top: 4px; object-fit: contain;">
+        <h3>Electricidad</h3>
+        <span class="contador">Cable, enchufes y accesorios</span>
+        <span class="ver-mas-cat">Ver productos →</span>
+      </button>
+
+
+      <!-- ==========================================
+           CATEGORÍA 10: CARNICERÍA          
+           ========================================== -->
+
+
+      <button class="tarjeta-categoria" data-categoria="carniceria">
+        <!-- Ícono: carnicería -->
+        <img src="img/IconoCarniceria.png" alt="Carnicería" style="transform: scale(1.3); height: 48px; width: auto; margin-bottom: 16px;margin-left: 25px; margin-top: 4px; object-fit: contain;">
+        <h3>Carnicería</h3>
+        <span class="contador">Hojas de sierra, maquina de picar y accesorios.</span>
+        <span class="ver-mas-cat">Ver productos →</span>
+      </button>
+
+
+      <!-- ==========================================
+           CATEGORÍA 11: GENERADORES          
+           ========================================== -->
+
+
+      <button class="tarjeta-categoria" data-categoria="generadores">
+        <!-- Ícono: generadores -->
+        <img src="img/IconoGeneradores.png" alt="Generadores" style="transform: scale(1.3); height: 48px; width: auto; margin-bottom: 16px;margin-left: 25px; margin-top: 4px; object-fit: contain;">
+        <h3>Generadores</h3>
+        <span class="contador">Generadores de todos los tamaños.</span>
+        <span class="ver-mas-cat">Ver productos →</span>
+      </button>
+
+
+      <!-- ==========================================
+           CATEGORÍA 12: OTROS          
+           ========================================== -->
+
+
+      <button class="tarjeta-categoria" data-categoria="otros">
+        <!-- Ícono: otros -->
+        <img src="img/IconoOtros.png" alt="Otros" style="transform: scale(1.3); height: 48px; width: auto; margin-bottom: 16px;margin-left: 25px; margin-top: 4px; object-fit: contain;">
+        <h3>Otros</h3>
+        <span class="contador">Calefones, tiras de led y otros.</span>
+        <span class="ver-mas-cat">Ver productos →</span>
+      </button>
+
+    </div>
+    <!-- FIN grilla categoría -->
+
+    <!-- =========================================================
+         PANEL DE PRODUCTOS 
+         ========================================================= -->
+    <div class="panel-productos" id="panelProductos">
+      <div class="panel-productos-header">
+        <h3 id="panelTitulo">Categoría</h3>
+        <button class="btn-cerrar-panel" id="btnCerrarPanel">Cerrar ✕</button>
+      </div>
+  
+      <div class="grid-productos" id="gridProductos">
+        
+      </div>
+    </div>
+    
+  </div>
+</section>
+<!-- FIN sección CATEGORÍAS Y PRODUCTOS -->
+
+<!-- =========================================================
+     SECCIÓN: UBICACIÓN
+     ========================================================= -->
+<section class="seccion seccion-alt" id="ubicacion">
+  <div class="contenedor">
+    <div class="encabezado-seccion">
+      <span class="eyebrow">Visitanos</span>
+      <h2>Dónde estamos</h2>
+      <p>Te esperamos en el local con stock y asesoramiento para tu proyecto.</p>
+    </div>
+
+    <div class="grid-ubicacion">
+      <div class="tarjeta-info-ubicacion">
+
+        <!-- ==========================================
+             DIRECCIÓN             
+             ========================================== -->
+        <div class="bloque-dato">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div>
+            <h4>Dirección</h4>
+            <p>Alberdi 760, Sunchales, Santa Fe</p>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             HORARIOS DE ATENCIÓN
+             ========================================== -->
+
+             
+
+        <div class="bloque-dato">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <div>
+            <h4>Horarios de atención</h4>
+            <table class="tabla-horarios">
+              <tr><td>Lunes a Viernes</td><td>8:00 - 12:00 / 16:00 - 19:30</td></tr>
+              <tr><td>Sábados</td><td>9:00 - 12:30</td></tr>
+              <tr><td>Domingos</td><td>Cerrado</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             TELÉFONO
+             ========================================== -->
+        <div class="bloque-dato">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2Z"/></svg>
+          <div>
+            <h4>Teléfono</h4>
+           
+            <p>3564 69-7813</p>
+          </div>
+        </div>
+      </div>
+      <!-- FIN tarjeta de datos -->
+
+      <!-- ==========================================
+           MAPA DE GOOGLE MAPS
+           ========================================== -->
+      <div class="contenedor-mapa">
+        <iframe
+          src="https://www.google.com/maps?q=Alberdi+760%2C+Sunchales%2C+Santa+Fe&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Ubicación de Ferretería Tosetto">
+        </iframe>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         FOTO DE LA FACHADA DEL LOCAL
+         ========================================== -->
+    <div class="tarjeta-fachada">
+      <img src="img/fachada.jpg" alt="Frente de Ferretería Tosetto">
+      <div class="tarjeta-fachada-caption">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        Nuestro local en Alberdi 760, Sunchales
+      </div>
+    </div>
+    <!-- FIN foto de la fachada -->
+  </div>
+</section>
+<!-- FIN sección UBICACIÓN -->
+
+<!-- =========================================================
+     SECCIÓN: CONTACTO / FOOTER
+     ========================================================= -->
+<footer class="footer" id="contacto">
+  <div class="contenedor">
+    <div class="grid-footer">
+      <div>
+        <div class="footer-marca">
+          <img src="img/logo.png" alt="Logo Ferretería Tosetto" class="logo-footer">
+          Ferretería Tosetto
+        </div>
+        <p>Más de una generación acompañando los proyectos del barrio, con atención personalizada y stock real.</p>
+      </div>
+
+      <div>
+        <h5>Contacto</h5>
+        <ul class="footer-links">
+          <li>
+            <!-- ============================================
+                  WHATSAPP DEL FOOTER
+                 ============================================ -->
+            <a href="https://wa.me/5493564697813" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1.1-.1.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.1-.3 0-.4.1-.6l.4-.5c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.1 0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.7-.7 1.9-1.3.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+              WhatsApp
+            </a>
+          </li>
+          <li>
+            <!-- ============================================
+                   INSTAGRAM 
+                 ============================================ -->
+            <a href="https://www.instagram.com/ferreteria_tosetto" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+              Instagram
+            </a>
+          </li>
+          <li>
+            <!-- ============================================
+                  FACEBOOK 
+                 ============================================ -->
+            <a href="https://www.facebook.com/profile.php?id=100043530805396" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3.5l.5-4H14V7a1 1 0 0 1 1-1h3z"/></svg>
+              Facebook
+            </a>
+          </li>
+          <li>
+            <!-- ============================================
+                  TELÉFONO FIJO / LÍNEA DEL LOCAL                
+                 ============================================ -->
+            <a href="tel:+5493564697813">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2Z"/></svg>
+              3564 69-7813
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Navegación</h5>
+        <ul class="footer-links">
+          <li><a href="#categorias">Categorías</a></li>
+          <li><a href="#ubicacion">Ubicación</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; <span id="anioActual"></span> Ferretería Tosetto. Todos los derechos reservados.</span>
+      <span>Sitio realizado para atención.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   DATOS DEL CATÁLOGO
+   -----------------------------------------------------------
+   Acá adentro viven los 8 productos... perdón, las 8 CATEGORÍAS,
+   con 4 productos cada una. Esto es lo único que necesitás tocar
+   para actualizar el catálogo: no hace falta editar el HTML de
+   arriba para cambiar textos o agregar fotos de productos.
+
+   Por cada producto vas a ver 3 datos:
+     - nombre:  el título que aparece en la tarjeta
+     - desc:    la descripción corta debajo del título
+     - imagen:  la ruta de la foto. Mientras quede como imagen: ""
+                (vacío), se muestra un dibujo gris de relleno.
+                Para poner la foto real, escribí la ruta adentro
+                de las comillas, por ejemplo: imagen: "img/martillo.jpg"
+                (guardá esa carpeta "img" al lado del index.html,
+                o poné la ruta que corresponda si organizás las
+                fotos de otra manera).
+
+   ⚠ Los comentarios "ACÁ AGREGAR FOTO" que ves en cada categoría
+   son justamente para recordarte eso: son solo una guía de texto,
+   no cambian nada en la página — podés borrarlos cuando ya hayas
+   cargado todas las fotos, o dejarlos ahí, no molestan.
+   ========================================================= */
+const CATALOGO = {
+
+  /* ==========================================
+     CATEGORÍA 1: HERRAMIENTAS MANUALES     
+     ========================================== */
+  manuales: {
+    titulo: "Herramientas Manuales",
+    productos: [
+      { nombre: "Destornilladores", desc: "Set surtido de puntas plana y phillips.", imagen: "img/Destornillador.jpg" },
+      { nombre: "Llaves combinadas", desc: "Juego de llaves de boca y corona en distintas medidas, acero cromado.", imagen: "img/LlaveCombinada.jpg" },
+      { nombre: "Martillos", desc: "Martillo carpintero, bolita y de goma.", imagen: "img/Martillo.jpg" },
+      { nombre: "Alicates", desc: "Alicate universal, de corte y de punta, ideales para uso diario.", imagen: "img/Alicates.jpg" }
+    ]
+  },
+
+  /* ==========================================
+     CATEGORÍA 2: MÁQUINAS ELÉCTRICAS      
+     ========================================== */
+  maquinas: {
+    titulo: "Máquinas Eléctricas",
+    productos: [
+      { nombre: "Amoladoras", desc: "Amoladora angular, ideal para corte y desbaste de metal.", imagen: "img/Amoladora.jpg" },
+      { nombre: "Taladros", desc: "Taladro percutor con velocidad variable y reversa..", imagen: "img/Taladro.jpg" },
+      { nombre: "Rotomartillos", desc: "Rotomartillo para trabajos pesados en hormigón y mampostería.", imagen: "img/Rotomartillo.jpg" },
+      { nombre: "Pulidoras", desc: "Acabados perfectos y alto brillo en todo tipo de superficies.", imagen: "img/Pulidora.jpg" }
+    ]
+  },
+
+  /* ==========================================
+     CATEGORÍA 3: CORTADORA / MOTOGUADAÑA 
+     ========================================== */
+  motoguadana: {
+    titulo: "Cortadora / Motoguadaña",
+    productos: [
+      { nombre: "Cortadoras de pasto", desc: "Cortadora de pasto electrica, ideal para jardines medianos y grandes.", imagen: "img/CortadoraDePasto.jpg" },
+      { nombre: "Sopladoras", desc: "Sopladora de hojas, liviana y de fácil manejo para el mantenimiento del patio.", imagen: "img/Sopladora.jpg" },
+      { nombre: "Motoguadañas", desc: "Motoguadaña a nafta para desmalezado de terrenos y bordes.", imagen: "img/Motoguadaña.jpg" },
+      { nombre: "Accesorios de jardín", desc: "Tijera de podar, tanza y juego de palitas.", imagen: "img/OtrosJardin.jpg" }
+    ]
+  },
+
+  /* ==========================================
+     CATEGORÍA 4: PINTURAS Y ACCESORIOS 
+     ========================================== */
+  pinturas: {
+    titulo: "Pinturas y Accesorios",
+    productos: [
+      { nombre: "Látex", desc: "Látex premium para interior y exterior, excelente rendimiento y fácil aplicación en todo tipo de muros.", imagen: "img/Latex.jpg" },
+      { nombre: "Esmaltes", desc: "Esmalte sintético de alta resistencia, ideal para proteger y dar acabado brillante a superficies de madera y metal.", imagen: "img/Esmalte.jpg" },
+      { nombre: "Rodillos", desc: "Rodillos profesionales para una aplicación rápida y eficiente en grandes superficies.", imagen: "img/Rodillo.jpg" },
+      { nombre: "Pinceles", desc: "Pinceles de alta precisión para retoques y terminaciones, disponibles en diversas medidas para cada necesidad.", imagen: "img/Pincel.jpg" }
+    ]
+  },
+
+  /* ==========================================
+     CATEGORÍA 5: PLOMERÍA Y SANITARIOS
+     ========================================== */
+  plomeria: {
+    titulo: "Plomería y Sanitarios",
+    productos: [
+      { nombre: "Caños", desc: "Caños de PVC, termofusión y polietileno negro en distintos diámetros para agua e instalaciones.", imagen: "img/Canos.jpg" },
+      { nombre: "Accesorios", desc: "Accesorios para conexiónes y instalaciones sanitarias.", imagen: "img/AccesoriosPlomeria.jpg" },
+      { nombre: "Canillas y llaves de paso", desc: "Canillas y llaves de paso de varios materiales y distintas medidas.", imagen: "img/LlavesDePaso.jpg" },
+      { nombre: "Sellos y accesorios", desc: "Teflón, sellador de roscas y accesorios varios para agua.", imagen: "img/Selladores.jpg" }
+    ]
+  },
+
+  /* ==========================================
+     CATEGORÍA 6: MOTOSIERRA 
+     ========================================== */
+  motosierra: {
+    titulo: "Motosierra",
+    productos: [
+      { nombre: "Motosierras", desc: "Motosierra a nafta, ideal para poda y corte de leña.", imagen: "img/Motosierra.jpg" },
+      { nombre: "Cadenas de repuesto", desc: "Cadenas de repuesto para motosierra en distintas medidas de paso.", imagen: "img/Cadena.jpg" },
+      { nombre: "Espadas", desc: "Espadas de reemplazo compatibles con los modelos más usados.", imagen: "img/Espada.jpg" },
+      { nombre: "Accesorios", desc: "Aceite para cadena, limas de afilado y mezcla para motosierra.", imagen: "img/AccesoriosMotosierra.jpg" }
+    ]
+  },
+
+  /* ==========================================
+     CATEGORÍA 7: TORNILLOS Y BULONES
+     ========================================== */
+  tornillos: {
+    titulo: "Tornillos y Bulones",
+    productos: [
+      { nombre: "Tirafondos", desc: "Gran variedad de medidas y para fijaciones generales.", imagen: "img/Tirafondo.jpg" },
+      { nombre: "Tornillos durleros", desc: "Resistentes, ideales para uso en madera.", imagen: "img/TornilloDurlero.jpg" },
+      { nombre: "Bulones", desc: "Bulones de diferente modelos y en distintas medidas.", imagen: "img/Bulones.jpg" },
+      { nombre: "Tuercas y arandelas", desc: "Surtido de tuercas y arandelas de diferentes medidas.", imagen: "img/Tuerca.jpg" }
+    ]
+  },
+
+  /* ==========================================
+     CATEGORÍA 8: ESTUFAS /// me quede aca
+     ========================================== */
+  estufas: {
+    titulo: "Estufas",
+    productos: [
+      { nombre: "Estufas con vidrio", desc: "Estufa a leña de doble combustión con puerta vidriada, alto rendimiento y vista panorámica del fuego.", imagen: "" },
+      { nombre: "Estufas sin vidrio", desc: "Estufa a leña de doble combustión de diseño tradicional, máxima eficiencia térmica y gran durabilidad.", imagen: "" },
+      { nombre: "Tiraje y caños", desc: "Caños, codos y accesorios de ventilación para una instalación segura y eficiente de tu estufa.", imagen: "" },
+      { nombre: "Accesorios", desc: "Atizadores, guantes térmicos y elementos para el uso diario de la estufa.", imagen: "" }
+    ]
+  },
+
+
+  /* ==========================================
+     CATEGORÍA 9: ELECTRICIDAD
+     ========================================== */
+  electricidad: {
+    titulo: "Electricidad",
+    productos: [
+      { nombre: "Interruptores y enchufes", desc: "Teclas, módulos y tomacorrientes Jeluz, máxima seguridad y diseño moderno para instalaciones residenciales.", imagen: "" },
+      { nombre: "Lámparas", desc: "Lámparas y focos LED marca Interelec, alta eficiencia energética y excelente rendimiento lumínico.", imagen: "" },
+      { nombre: "Cables", desc: "Cables normalizados de primera calidad para un tendido y una conducción eléctrica segura en obras y hogares.", imagen: "" },
+      { nombre: "Caños rígidos y corrugados", desc: "Caños corrugados y tubos rígidos diseñados para una óptima canalización y protección del tendido eléctrico.", imagen: "" }
+    ]
+  },
+
+  /* ==========================================
+     CATEGORÍA 10: CARNICERÍA
+     ========================================== */
+  carniceria: {
+    titulo: "Carnicería",
+    productos: [
+      { nombre: "Hoja de sierra", desc: "Hojas de sierra carniceras de acero templado, disponibles en todas las medidas para un corte limpio y preciso.", imagen: "" },
+      { nombre: "Picadoras de carnes", desc: "Picadoras manuales de fundición estañada, ideales para procesar carnes de forma tradicional y resistente.", imagen: "" },
+      { nombre: "Grillas y cuchilas", desc: "Grillas y cuchillas de repuesto en diversas medidas para picadoras de carne manuales y eléctricas.", imagen: "" },
+      { nombre: "Cuchillos", desc: "Cuchillos profesionales con hoja de acero inoxidable y mango ergonómico para un desposte y corte impecable.", imagen: "" }
+    ]
+  },
+
+
+  /* ==========================================
+     CATEGORÍA 11: GENERADORES
+     ========================================== */
+  generadores: {
+    titulo: "Generadores",
+    productos: [
+      { nombre: "Generador para emergencia", desc: "GGeneradores portátiles de respaldo para asegurar el suministro eléctrico ante cortes imprevistos en el hogar o comercio.", imagen: "" },
+      { nombre: "Generador para pesca", desc: "Generadores compactos, silenciosos y fáciles de trasladar, ideales para proveer energía en campings, aire libre y jornadas de pesca.", imagen: "" },
+      
+    ]
+  },
+
+  /* ==========================================
+     CATEGORÍA 12: OTROS
+     ========================================== */
+  otros: {
+    titulo: "Otros",
+    productos: [
+      { nombre: "Calefones", desc: "DCalefones y sistemas de calentamiento de agua para asegurar un suministro continuo y eficiente en el hogar.", imagen: "" },
+      { nombre: "Tiras de led", desc: "Tiras de LED flexibles de alta luminosidad y bajo consumo, ideales para iluminación decorativa y lineal.", imagen: "" },
+      { nombre: "Compresores", desc: "Compresores de aire portátiles y de taller, ideales para inflado, sopleteado y uso con herramientas neumáticas.", imagen: "" },
+      { nombre: "Otros", desc: "Otros productos varios.", imagen: "" }
+    ]
+  }
+
+  
+
+}; // FIN objeto CATALOGO
+
+
+
+
+const SVG_PLACEHOLDER = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>`;
+
+const SVG_FLECHA = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>`;
+
+
+const WHATSAPP_NUMERO = "5493564697813";
+
+const panel = document.getElementById('panelProductos');
+const panelTitulo = document.getElementById('panelTitulo');
+const gridProductos = document.getElementById('gridProductos');
+const tarjetasCategoria = document.querySelectorAll('.tarjeta-categoria');
+
+
+function mostrarCategoria(claveCategoria, tarjetaClickeada){
+  const categoria = CATALOGO[claveCategoria];
+  if(!categoria) return;
+
+
+  tarjetasCategoria.forEach(t => t.classList.remove('activa'));
+  tarjetaClickeada.classList.add('activa');
+
+  panelTitulo.textContent = categoria.titulo;
+
+  gridProductos.innerHTML = categoria.productos.map(prod => {
+    const mensaje = encodeURIComponent(`Hola Ferretería Tosetto, quería consultar por: ${prod.nombre}`);
+    const imagenHTML = prod.imagen
+      ? `<img src="${prod.imagen}" alt="${prod.nombre}" style="width:100%;aspect-ratio:4/3;object-fit:cover;">`
+      : `<div class="placeholder-img">${SVG_PLACEHOLDER}</div>`;
+
+    return `
+      <article class="tarjeta-producto">
+        ${imagenHTML}
+        <div class="tarjeta-producto-info">
+          <h4>${prod.nombre}</h4>
+          <p>${prod.desc}</p>
+          <a class="btn-consultar" href="https://wa.me/${WHATSAPP_NUMERO}?text=${mensaje}" target="_blank" rel="noopener">
+            Consultar ${SVG_FLECHA}
+          </a>
+        </div>
+      </article>
+    `;
+  }).join('');
+
+  panel.classList.add('visible');
+  panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+
+tarjetasCategoria.forEach(tarjeta => {
+  tarjeta.addEventListener('click', () => {
+    mostrarCategoria(tarjeta.dataset.categoria, tarjeta);
+  });
+});
+
+document.getElementById('btnCerrarPanel').addEventListener('click', () => {
+  panel.classList.remove('visible');
+  tarjetasCategoria.forEach(t => t.classList.remove('activa'));
+});
+
+
+const btnMenu = document.getElementById('btnMenu');
+const navLinks = document.getElementById('navLinks');
+
+btnMenu.addEventListener('click', () => {
+  const abierto = navLinks.classList.toggle('abierto');
+  btnMenu.setAttribute('aria-expanded', abierto);
+});
+
+
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('abierto');
+    btnMenu.setAttribute('aria-expanded', 'false');
+  });
+});
+
+
+document.getElementById('anioActual').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
