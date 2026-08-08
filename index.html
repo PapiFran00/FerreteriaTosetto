@@ -936,7 +936,7 @@ a:focus-visible, button:focus-visible{
 
       <button class="tarjeta-categoria" data-categoria="carniceria">
         <!-- Ícono: carnicería -->
-        <img src="img/IconoCarniceria.png" alt="Carnicería" style="transform: scale(1.3); height: 48px; width: auto; margin-bottom: 16px;margin-left: 25px; margin-top: 4px; object-fit: contain;">
+        <img src="img/IconoCarniceria.png" alt="Carnicería" style="transform: scale(1.5); height: 48px; width: auto; margin-bottom: 16px;margin-left: 25px; margin-top: 4px; object-fit: contain;">
         <h3>Carnicería</h3>
         <span class="contador">Hojas de sierra, maquina de picar y accesorios.</span>
         <span class="ver-mas-cat">Ver productos →</span>
@@ -950,7 +950,7 @@ a:focus-visible, button:focus-visible{
 
       <button class="tarjeta-categoria" data-categoria="generadores">
         <!-- Ícono: generadores -->
-        <img src="img/IconoGeneradores.png" alt="Generadores" style="transform: scale(1.3); height: 48px; width: auto; margin-bottom: 16px;margin-left: 25px; margin-top: 4px; object-fit: contain;">
+        <img src="img/IconoGenerador.png" alt="Generadores" style="transform: scale(1.3); height: 48px; width: auto; margin-bottom: 16px;margin-left: 25px; margin-top: 4px; object-fit: contain;">
         <h3>Generadores</h3>
         <span class="contador">Generadores de todos los tamaños.</span>
         <span class="ver-mas-cat">Ver productos →</span>
@@ -964,7 +964,7 @@ a:focus-visible, button:focus-visible{
 
       <button class="tarjeta-categoria" data-categoria="otros">
         <!-- Ícono: otros -->
-        <img src="img/IconoOtros.png" alt="Otros" style="transform: scale(1.3); height: 48px; width: auto; margin-bottom: 16px;margin-left: 25px; margin-top: 4px; object-fit: contain;">
+        <img src="img/IconoOtro.png" alt="Otros" style="transform: scale(1.3); height: 48px; width: auto; margin-bottom: 16px;margin-left: 25px; margin-top: 4px; object-fit: contain;">
         <h3>Otros</h3>
         <span class="contador">Calefones, tiras de led y otros.</span>
         <span class="ver-mas-cat">Ver productos →</span>
@@ -1151,28 +1151,7 @@ a:focus-visible, button:focus-visible{
 
 <script>
 /* =========================================================
-   DATOS DEL CATÁLOGO
-   -----------------------------------------------------------
-   Acá adentro viven los 8 productos... perdón, las 8 CATEGORÍAS,
-   con 4 productos cada una. Esto es lo único que necesitás tocar
-   para actualizar el catálogo: no hace falta editar el HTML de
-   arriba para cambiar textos o agregar fotos de productos.
-
-   Por cada producto vas a ver 3 datos:
-     - nombre:  el título que aparece en la tarjeta
-     - desc:    la descripción corta debajo del título
-     - imagen:  la ruta de la foto. Mientras quede como imagen: ""
-                (vacío), se muestra un dibujo gris de relleno.
-                Para poner la foto real, escribí la ruta adentro
-                de las comillas, por ejemplo: imagen: "img/martillo.jpg"
-                (guardá esa carpeta "img" al lado del index.html,
-                o poné la ruta que corresponda si organizás las
-                fotos de otra manera).
-
-   ⚠ Los comentarios "ACÁ AGREGAR FOTO" que ves en cada categoría
-   son justamente para recordarte eso: son solo una guía de texto,
-   no cambian nada en la página — podés borrarlos cuando ya hayas
-   cargado todas las fotos, o dejarlos ahí, no molestan.
+   DATOS DEL CATÁLOGO DE PRODUCTOS
    ========================================================= */
 const CATALOGO = {
 
@@ -1268,15 +1247,15 @@ const CATALOGO = {
   },
 
   /* ==========================================
-     CATEGORÍA 8: ESTUFAS /// me quede aca
+     CATEGORÍA 8: ESTUFAS 
      ========================================== */
   estufas: {
     titulo: "Estufas",
     productos: [
-      { nombre: "Estufas con vidrio", desc: "Estufa a leña de doble combustión con puerta vidriada, alto rendimiento y vista panorámica del fuego.", imagen: "" },
-      { nombre: "Estufas sin vidrio", desc: "Estufa a leña de doble combustión de diseño tradicional, máxima eficiencia térmica y gran durabilidad.", imagen: "" },
-      { nombre: "Tiraje y caños", desc: "Caños, codos y accesorios de ventilación para una instalación segura y eficiente de tu estufa.", imagen: "" },
-      { nombre: "Accesorios", desc: "Atizadores, guantes térmicos y elementos para el uso diario de la estufa.", imagen: "" }
+      { nombre: "Estufas con vidrio", desc: "Estufa a leña de doble combustión con puerta vidriada, alto rendimiento y vista panorámica del fuego.", imagen: "img/EstufaVidrio.jpg" },
+      { nombre: "Estufas sin vidrio", desc: "Estufa a leña de doble combustión de diseño tradicional, máxima eficiencia térmica y gran durabilidad.", imagen: "img/EstufaSinVidrio.jpg" },
+      { nombre: "Tiraje y caños", desc: "Caños, codos y accesorios de ventilación para una instalación segura y eficiente de tu estufa.", imagen: "img/TirajeCanos.jpg" },
+      { nombre: "Accesorios", desc: "Atizadores, guantes térmicos y elementos para el uso diario de la estufa.", imagen: "img/AccesorioEstufa.jpg" }
     ]
   },
 
@@ -1287,10 +1266,10 @@ const CATALOGO = {
   electricidad: {
     titulo: "Electricidad",
     productos: [
-      { nombre: "Interruptores y enchufes", desc: "Teclas, módulos y tomacorrientes Jeluz, máxima seguridad y diseño moderno para instalaciones residenciales.", imagen: "" },
-      { nombre: "Lámparas", desc: "Lámparas y focos LED marca Interelec, alta eficiencia energética y excelente rendimiento lumínico.", imagen: "" },
-      { nombre: "Cables", desc: "Cables normalizados de primera calidad para un tendido y una conducción eléctrica segura en obras y hogares.", imagen: "" },
-      { nombre: "Caños rígidos y corrugados", desc: "Caños corrugados y tubos rígidos diseñados para una óptima canalización y protección del tendido eléctrico.", imagen: "" }
+      { nombre: "Interruptores y enchufes", desc: "Teclas, módulos y tomacorrientes Jeluz, máxima seguridad y diseño moderno para instalaciones residenciales.", imagen: "img/Interruptor.jpg" },
+      { nombre: "Lámparas", desc: "Lámparas y focos LED marca Interelec, alta eficiencia energética y excelente rendimiento lumínico.", imagen: "img/Lampara.jpg" },
+      { nombre: "Cables", desc: "Cables normalizados de primera calidad para un tendido y una conducción eléctrica segura en obras y hogares.", imagen: "img/Cable.jpg" },
+      { nombre: "Caños rígidos y corrugados", desc: "Caños corrugados y tubos rígidos diseñados para una óptima canalización y protección del tendido eléctrico.", imagen: "img/CanoRigido.jpg" }
     ]
   },
 
@@ -1300,10 +1279,10 @@ const CATALOGO = {
   carniceria: {
     titulo: "Carnicería",
     productos: [
-      { nombre: "Hoja de sierra", desc: "Hojas de sierra carniceras de acero templado, disponibles en todas las medidas para un corte limpio y preciso.", imagen: "" },
-      { nombre: "Picadoras de carnes", desc: "Picadoras manuales de fundición estañada, ideales para procesar carnes de forma tradicional y resistente.", imagen: "" },
-      { nombre: "Grillas y cuchilas", desc: "Grillas y cuchillas de repuesto en diversas medidas para picadoras de carne manuales y eléctricas.", imagen: "" },
-      { nombre: "Cuchillos", desc: "Cuchillos profesionales con hoja de acero inoxidable y mango ergonómico para un desposte y corte impecable.", imagen: "" }
+      { nombre: "Hoja de sierra", desc: "Hojas de sierra carniceras de acero templado, disponibles en todas las medidas para un corte limpio y preciso.", imagen: "img/HojaSierra.jpg" },
+      { nombre: "Picadoras de carnes", desc: "Picadoras manuales de fundición estañada, ideales para procesar carnes de forma tradicional y resistente.", imagen: "img/PicadoraCarnes.jpg" },
+      { nombre: "Grillas y cuchilas", desc: "Grillas y cuchillas de repuesto en diversas medidas para picadoras de carne manuales y eléctricas.", imagen: "img/CuchillaPicadora.jpg" },
+      { nombre: "Cuchillos", desc: "Cuchillos profesionales con hoja de acero inoxidable y mango ergonómico para un desposte y corte impecable.", imagen: "img/Cuchillo.jpg" }
     ]
   },
 
@@ -1314,9 +1293,8 @@ const CATALOGO = {
   generadores: {
     titulo: "Generadores",
     productos: [
-      { nombre: "Generador para emergencia", desc: "GGeneradores portátiles de respaldo para asegurar el suministro eléctrico ante cortes imprevistos en el hogar o comercio.", imagen: "" },
-      { nombre: "Generador para pesca", desc: "Generadores compactos, silenciosos y fáciles de trasladar, ideales para proveer energía en campings, aire libre y jornadas de pesca.", imagen: "" },
-      
+      { nombre: "Generador para emergencia", desc: "GGeneradores portátiles de respaldo para asegurar el suministro eléctrico ante cortes imprevistos en el hogar o comercio.", imagen: "img/Generador.jpg" },
+      { nombre: "Generador para pesca", desc: "Generadores compactos, silenciosos y fáciles de trasladar, ideales para proveer energía en campings, aire libre y jornadas de pesca.", imagen: "img/GeneradorPesca.jpg" }
     ]
   },
 
@@ -1326,10 +1304,10 @@ const CATALOGO = {
   otros: {
     titulo: "Otros",
     productos: [
-      { nombre: "Calefones", desc: "DCalefones y sistemas de calentamiento de agua para asegurar un suministro continuo y eficiente en el hogar.", imagen: "" },
-      { nombre: "Tiras de led", desc: "Tiras de LED flexibles de alta luminosidad y bajo consumo, ideales para iluminación decorativa y lineal.", imagen: "" },
-      { nombre: "Compresores", desc: "Compresores de aire portátiles y de taller, ideales para inflado, sopleteado y uso con herramientas neumáticas.", imagen: "" },
-      { nombre: "Otros", desc: "Otros productos varios.", imagen: "" }
+      { nombre: "Calefones", desc: "Calefones y sistemas de calentamiento de agua para asegurar un suministro continuo y eficiente en el hogar.", imagen: "img/Calefones.jpg" },
+      { nombre: "Tiras de led", desc: "Tiras de LED flexibles de alta luminosidad y bajo consumo, ideales para iluminación decorativa y lineal.", imagen: "img/TirasLed.jpg" },
+      { nombre: "Compresores", desc: "Compresores de aire portátiles y de taller, ideales para inflado, sopleteado y uso con herramientas neumáticas.", imagen: "img/Compresor.jpg" },
+      { nombre: "Otros", desc: "Otros productos varios.", imagen: "img/Otros.jpg" }
     ]
   }
 
